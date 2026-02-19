@@ -40,6 +40,33 @@ public class StringUtils {
 
         return Arrays.equals(arr1, arr2);
     }
+    public static String swapFirstLast(String sentence) {
+
+    String[] words = sentence.split(" ");
+    StringBuilder result = new StringBuilder();
+
+    for (int i = 0; i < words.length; i++) {
+
+        String word = words[i];
+
+        if (word.length() > 1) {
+
+            char first = word.charAt(0);
+            char last = word.charAt(word.length() - 1);
+            String middle = word.substring(1, word.length() - 1);
+
+            word = last + middle + first;
+        }
+
+        result.append(word);
+
+        if (i < words.length - 1) {
+            result.append(" ");
+        }
+    }
+
+    return result.toString();
+}
 
     public static void main(String[] args) {
 
@@ -54,5 +81,9 @@ public class StringUtils {
         System.out.println("Sorted:" + sortString(var1));
 
         System.out.println(isAnagram("listen", "silent"));
+        String sentence = "This is PP2 Fall 2025";
+        System.out.println(swapFirstLast(sentence));
     }
+
+    
 }
